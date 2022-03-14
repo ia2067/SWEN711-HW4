@@ -14,3 +14,12 @@ For homework 4
 
 ## Assumptions
 1. The agent cannot move out of the world, an attempt to do so will result in no movement
+
+## Part 1
+See [P1.py](src/P1.py) for the python code related to part 1. Because of the above (Environment Dynamics)[#environment-dynamics] there is some variablility but a sample statistical analysis of the observed discounted returns is below:
+```
+Mean:  -25.838
+Standard Deviation:  49.91129888111509
+Maximum:  10
+Minimuim:  -490
+```

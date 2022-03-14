@@ -42,7 +42,7 @@ class world:
         # print("CONFUSED RIGHT")
         idx = self.acceptedMoves.index(dir)
         idx += 1
-        if(idx > len(self.acceptedMoves)):
+        if(idx >= len(self.acceptedMoves)):
             idx = 0
         return self.acceptedMoves[idx]
 
@@ -51,7 +51,7 @@ class world:
         idx = self.acceptedMoves.index(dir)
         idx -= 1
         if(idx < 0):
-            idx = len(self.acceptedMoves)
+            idx = len(self.acceptedMoves) - 1
         return self.acceptedMoves[idx]
 
 

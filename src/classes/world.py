@@ -31,6 +31,71 @@ class world:
                 else:
                     self.theWorld[i][j] = state(0,True)
         self.currentLoc = self.start
+        self.acceptedMoves = [ # ORDER HERE MATTERS
+                                "up",
+                                "right",
+                                "down", 
+                                "left"
+                            ]
+
+    def __confusedRight(self, dir:str) -> str:
+        # print("CONFUSED RIGHT")
+        idx = self.acceptedMoves.index(dir)
+        idx += 1
+        if(idx > len(self.acceptedMoves)):
+            idx = 0
+        return self.acceptedMoves[idx]
+
+    def __confusedLeft(self, dir:str) -> str:
+        # print("CONFUSED LEFT")
+        idx = self.acceptedMoves.index(dir)
+        idx -= 1
+        if(idx < 0):
+            idx = len(self.acceptedMoves)
+        return self.acceptedMoves[idx]
+
+
+    def attemptMove(self, dir:str) -> int: #return reward
+        # if an unaccaptable move, then throw out the move
+        if(dir not in self.acceptedMoves):
+            return 0
+
+        newLoc = list(self.currentLoc)
+        
+        # probabilty for certain environment dynamics
+        p = np.random.uniform(0.0,1.0)
+
+        if(0 < p and p <= 0.8): # nothing funny going on here!
+            pass 
+        elif(0.8 < p and p <= 0.85): # oops! went right
+            dir = self.__confusedRight(dir)
+        elif(0.85 < p and p <= 0.9): # oops! went left
+            dir = self.__confusedLeft(dir)
+        elif(p > 0.9 and p <= 1.0): # oops! borked
+            return 0
+
+        # Attempt Move
+        if(dir == "up"):
+            newLoc[0] -= 1
+        elif(dir == "down"):
+            newLoc[0] += 1
+        elif(dir == "left"):
+            newLoc[1] -= 1
+        elif(dir == "right"):
+            newLoc[1] += 1
+
+        # Adjust if attempting to go into bad spot
+        if(newLoc[0] < 0 or newLoc[1] < 0):
+            newLoc = list(self.currentLoc)
+        elif(newLoc[0] > 4 or newLoc[1] > 4):
+            newLoc = list(self.currentLoc)
+        elif(not self.theWorld[newLoc[0]][newLoc[1]].enterable):
+            newLoc = list(self.currentLoc)
+
+        # save move and return reward
+        self.currentLoc = tuple(newLoc)
+        return self.theWorld[newLoc[0]][newLoc[1]].reward
+            
 
     def display(self) -> None:
         # print world to cmd line

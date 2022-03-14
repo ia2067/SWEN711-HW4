@@ -8,7 +8,7 @@ For homework 4
 1. p = 0.05
     * The agent is confused and moves +90&deg;
 1. p = 0.05
-    * The agent is confused and moves +90&deg;
+    * The agent is confused and moves -90&deg;
 1. p = 0.1
     * The agent is confused and does not move
 

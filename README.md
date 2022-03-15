@@ -56,3 +56,6 @@ We can see a 100% success rate, to really put it to the test I even ran it for 1
 
 # Question 2
 ![Question 2](./Q2/GC.png)
+
+# Question 3
+The key here is the finite-ness of the MDP. Essentially, in a situation like this, each policy may take a different number of transitions in order to reach its terminous state. That is maybe one policy will pass through 4 states where as another only hits 2. In this example, say you only normally get a reward for entering the final state, say +10, that is both policies ensure a reward of +10 since they both end in the final state, and previous states have no rewards. However, if you add a positive constant to *all* rewards, then the former policy now will produce a reward of +50 where as the latter only has a reward of +30. This is different from the original conclusion, and has changed which policy is optimal.

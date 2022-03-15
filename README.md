@@ -52,3 +52,7 @@ Maximum:  10.0
 Minimuim:  10.0
 ```
 We can see a 100% success rate, to really put it to the test I even ran it for 1 million times, and I still got the same answer.
+
+
+# Question 2
+![Question 2](./Q2/GC.png)

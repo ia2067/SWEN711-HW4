@@ -1,0 +1,19 @@
+@startuml
+
+title "Garbage Collection MDP"
+
+hide empty description
+state push as "Call Function"
+state idle as "Run Function"
+state overload as "Run out of memory"
+state return as "Return from Function"
+state cg as "Clear Unused Memory"
+
+push -> idle
+idle -> return : 0.80
+idle -> overload : 0.20
+overload -> cg : 0.75
+cg -down-> idle : 0.75
+cg -> return : 0.25
+
+@enduml

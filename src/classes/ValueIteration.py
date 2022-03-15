@@ -183,7 +183,7 @@ class ValueIteration:
         return policy
 
     def getPolicy(self):
-        policy = np.empty((5,5),str)
+        policy = np.empty((5,5),dtype=np.dtype('U100'))
         for i in range(5):
             for j in range(5):
                 # check if obstacle 

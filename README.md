@@ -42,3 +42,13 @@ For the purposes of viewing it prettily, the below uses the same values and show
 [ ↑ ][ ↑ ][ █ ][ → ][ ↓ ]
 [ ↑ ][ ↑ ][ → ][ → ][ + ]
 ```
+
+## Part 3
+see [P3.py](src/P3.py) for the python code related to Part 3. Similarly to Part 1, except using the above policy, it was run 10,000 times and some statistics are shown below.
+```
+Mean:  10.0
+Standard Deviation:  0.0
+Maximum:  10.0
+Minimuim:  10.0
+```
+We can see a 100% success rate, to really put it to the test I even ran it for 1 million times, and I still got the same answer.

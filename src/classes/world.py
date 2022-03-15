@@ -95,6 +95,9 @@ class world:
         # save move and return reward
         self.currentLoc = tuple(newLoc)
         return self.theWorld[newLoc[0]][newLoc[1]].reward
+
+    def getCurrentLocation(self) -> tuple:
+        return self.currentLoc
             
 
     def display(self) -> None:

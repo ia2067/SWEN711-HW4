@@ -19,8 +19,6 @@ odr = np.empty(10000,dtype=int) # observed discount returns
 print("Running 10,000 iterations of a unifromly randomly selected action policy...")
 # running 10,000 episodes
 for iter in tqdm(range(10000)):
-    if((iter + 1) % 1000 == 0):
-        print("#",end='')
     # create new world
     wrld = world()
     # create empty eposidic reward array
